@@ -1,10 +1,10 @@
 /*
  * JungBok Cho
- * CPSC 5011, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Password vault system
  */
 package encrypt;
 import java.util.Random;
+
 /**
  * This is a program to encrypt and decrypt a password.
  * 
@@ -13,12 +13,14 @@ import java.util.Random;
  */
 public class CaesarCipher implements Encryptor {
 
+	
 	/**
 	 * Constructor of CaesarCipher class
 	 */
 	public CaesarCipher() {
 		shift = getShift();
 	}
+	
 	
 	/**
 	 * Constructor of CaesarCipher class to use singleton pattern
@@ -29,15 +31,18 @@ public class CaesarCipher implements Encryptor {
 		return INSTANCE;
 	}
 	
+	
 	@Override
 	public String encrypt(String password) {
 		return encryptDecrypt(password, true);
 	}
+	
 
 	@Override
 	public String decrypt(String password) {
 		return encryptDecrypt(password, false);
 	}
+	
 	
 	/**
 	 * To shift words in the ASCII table
@@ -50,6 +55,7 @@ public class CaesarCipher implements Encryptor {
 		int high = OFFSET_MAX - OFFSET_MIN;
 		return r.nextInt(high - low) + low;
 	}
+	
 	
 	/**
 	 * To encrypt or decrypt a password
@@ -66,26 +72,31 @@ public class CaesarCipher implements Encryptor {
 		
 		for (char c : password.toCharArray()) {
 			int indx = c, cpos;
+			
 			if (!isPositionInRange(indx)) {
 				throw new IllegalArgumentException("String to be encrypted "
-													+ "has unrecognized "
-													+ "character " + c);
+								    + "has unrecognized "
+								    + "character " + c);
 			}
+			
 			// Encrypt the password
 			if (encrypt) {
 				cpos = indx + shift;
 				if (cpos > OFFSET_MAX)
 					cpos = OFFSET_MIN + (cpos - OFFSET_MAX);
+				
 			// Decrypt the password
 			} else {
 				cpos = indx - shift;
 				if (cpos < OFFSET_MIN)
 					cpos = OFFSET_MAX - (OFFSET_MIN - cpos);	
 			}
+			
 			sb.append((char)cpos);
 		}
 		return sb.toString();		
 	}	
+	
 	
 	/**
 	 * Check if the character is in the range between 32 and 126 
@@ -98,16 +109,17 @@ public class CaesarCipher implements Encryptor {
 		return indx >= OFFSET_MIN && indx <= OFFSET_MAX;
 	}
 	
+	
 	// To store the number to shift in the ASCII table
 	private static int shift;	
 	
 	// The starting character in the ASCII table
-    private static final int OFFSET_MIN = 32;	
+        private static final int OFFSET_MIN = 32;	
     
-    // The ending character in the ASCII table
-    private static final int OFFSET_MAX = 126;	
+        // The ending character in the ASCII table
+        private static final int OFFSET_MAX = 126;	
     
-    // CaesarCipher object for the singleton pattern
-    private static final CaesarCipher INSTANCE = new CaesarCipher();	
-    
+        // CaesarCipher object for the singleton pattern
+        private static final CaesarCipher INSTANCE = new CaesarCipher();	
+   
 }
