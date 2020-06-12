@@ -65,8 +65,7 @@ public class CaesarCipher implements Encryptor {
 	 * @return	Return an encrypted or decrypted password
 	 * @throws IllegalArgumentException
 	 */
-	private String encryptDecrypt(String password, boolean encrypt) 
-								  throws IllegalArgumentException {
+	private String encryptDecrypt(String password, boolean encrypt) throws IllegalArgumentException {
 		// StringBuilder object to create encrypted or decrypted password
 		StringBuilder sb = new StringBuilder();	
 		
