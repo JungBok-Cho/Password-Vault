@@ -19,7 +19,7 @@ public class InvalidSiteException extends Exception {
 	 */
 	public InvalidSiteException() {
         super("Error: Invalid Site" + "\nSite name must be "
-        		+ "strings of at least 6 and at most 12 lower-case letters" );
+        	+ "strings of at least 6 and at most 12 lower-case letters" );
     }
 
 }
