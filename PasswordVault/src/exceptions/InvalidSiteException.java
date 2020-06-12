@@ -1,9 +1,9 @@
 /*
  * JungBok Cho
- * CPSC 5011, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Password vault system
  */
 package exceptions;
+
 /**
  * This is a program to throw InvalidSiteException
  * 
