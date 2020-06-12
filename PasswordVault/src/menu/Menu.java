@@ -1,7 +1,6 @@
 /*
  * JungBok Cho
- * CPSC 5011, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Password vault system
  */
 package menu;
 import java.io.BufferedReader;
@@ -10,6 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 /**
  * This is a program to implement MenuItem.
  * 
@@ -23,6 +23,7 @@ public class Menu extends MenuItem {
     
     List<MenuItem> items;  // List to store MenuItem
  
+	
     /**
      * Menu Constructor
      * 
@@ -30,6 +31,7 @@ public class Menu extends MenuItem {
      * @param items  Items to use
      */
     public Menu(String title, MenuItem ... items) { this(title, false, true, items); }
+	
  
     /**
      * Second Menu Constructor
@@ -45,6 +47,7 @@ public class Menu extends MenuItem {
  
         initialize(addBack, addQuit, items);  // Call initialize
     }
+	
      
     /**
      * Initialize the menu
@@ -58,6 +61,7 @@ public class Menu extends MenuItem {
         if (addBack) this.items.add(back);
         if (addQuit) this.items.add(quit);
     }
+	
      
     /**
      * Display the menu
@@ -71,6 +75,7 @@ public class Menu extends MenuItem {
         System.out.print("select option: ");
         System.out.flush();
     }
+	
      
     /**
      * Prompt the menu
@@ -94,6 +99,7 @@ public class Menu extends MenuItem {
             System.out.println("not a valid menu option: " + line + "\n");
         } 
     }
+	
      
     /**
      * Run the menu
@@ -107,18 +113,20 @@ public class Menu extends MenuItem {
         }
     }
     
+	
     /**
-	 * MenuItem object to quit
-	 */
+     * MenuItem object to quit
+     */
     private static final MenuItem quit = new MenuItem("quit", new Runnable() {
         public void run() {
             System.exit(0);
         }
     });
      
+	
     /**
-	 * MenuItem object to go back
-	 */
+     * MenuItem object to go back
+     */
     private static final MenuItem back = new MenuItem("back");
     
 }
