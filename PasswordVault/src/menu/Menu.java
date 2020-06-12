@@ -16,7 +16,7 @@ import java.util.List;
  * Reference: <a href="https://www.java-forums.org/new-java/26584-menu-driven
  * -console-help-please.html">A Simple Text-Based Menu System</a>
  * 
- * @author  JosAH
+ * @author  JungBok Cho
  * @version 1.0
  */
 public class Menu extends MenuItem {
