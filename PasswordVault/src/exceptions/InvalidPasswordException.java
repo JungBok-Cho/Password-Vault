@@ -19,10 +19,10 @@ public class InvalidPasswordException extends Exception {
 	 */
 	public InvalidPasswordException() {
         super("Error: Invalid Password" + "\n- Password must be between "
-        		+ "6 and 15 characters long\n- Password must contain at "
-        		+ "least one letter (can be upper or lowercase) and one "
-        		+ "digit (0-9)\n- Password must contain at least one "
-        		+ "special character from the set !@#$%^&");
+        	+ "6 and 15 characters long\n- Password must contain at "
+        	+ "least one letter (can be upper or lowercase) and one "
+        	+ "digit (0-9)\n- Password must contain at least one "
+        	+ "special character from the set !@#$%^&");
     }
 	
 }
