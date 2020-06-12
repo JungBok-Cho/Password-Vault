@@ -1,9 +1,9 @@
 /*
  * JungBok Cho
- * CPSC 5011, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Password vault system
  */
 package vault;
+
 /**
  * This is an ADT of Binary Search Tree to save a pair of website and password.
  * 
@@ -19,6 +19,7 @@ public class ManageWebsite {
 		root = null;
 	}
 	
+	
 	/**
 	 * Check if the BST contains the site name
 	 * 
@@ -28,6 +29,7 @@ public class ManageWebsite {
 	public boolean contains(String sitename) {
 		return contains(root, sitename);
 	}
+	
 
 	/**
 	 * Insert a pair of a sitename and a password into the BST
@@ -39,6 +41,7 @@ public class ManageWebsite {
 		root = insert(root, sitename, password);
 	} 
 	
+	
 	/**
 	 * Update a password of a website
 	 * 
@@ -48,6 +51,7 @@ public class ManageWebsite {
 	public void update(String sitename, String password) {
 		root = update(root, sitename, password);
 	}
+	
 
 	/**
 	 * Return the password of the website
@@ -58,6 +62,7 @@ public class ManageWebsite {
 	public String get(String sitename) {
 		return get(root, sitename);
 	}
+	
 	
 	/**
 	 * Helper method of insert function
@@ -79,6 +84,7 @@ public class ManageWebsite {
 		return root;
 	}
 	
+	
 	/**
 	 * Helper method of contains function
 	 * 
@@ -98,6 +104,7 @@ public class ManageWebsite {
 			return true;
 		}
 	}
+	
 	
 	/**
 	 * Helper method of update function
@@ -121,6 +128,7 @@ public class ManageWebsite {
 		return root;
 	}
 	
+	
 	/**
 	 * Helper method of get function
 	 * 
@@ -141,14 +149,15 @@ public class ManageWebsite {
 		}
 	}
 	
+	
 	/**
 	 * Node class
 	 */
 	private class Node {
-		private String website;	  // To store a website
-		private String password;  // To store a password of the website
-		private Node left;		  // Left Node
-		private Node right;		  // Right Node
+		private String website;	   // To store a website
+		private String password;   // To store a password of the website
+		private Node left;	   // Left Node
+		private Node right;	   // Right Node
 		
 		/**
 		 * Constructor of Node clas
@@ -163,6 +172,7 @@ public class ManageWebsite {
 			this.right = null;
 		}
 	}
+	
 	
 	private Node root; // To store a root of a website
 	
