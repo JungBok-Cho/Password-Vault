@@ -1,9 +1,9 @@
 /*
  * JungBok Cho
- * CPSC 5011, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Password vault system
  */
 package encrypt;
+
 /**
  * This is an Interface class for the CaesarCipher class.
  * 
@@ -19,6 +19,7 @@ public interface Encryptor {
 	 * @return  The encrypted string
 	 */
 	String encrypt(String password);
+	
 	
 	/**
 	 * Decrypts the passed in string
