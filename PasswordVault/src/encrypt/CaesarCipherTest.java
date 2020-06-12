@@ -1,11 +1,11 @@
 /*
  * JungBok Cho
- * CPSC 5011, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Password vault program
  */
 package encrypt;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+
 /**
  * This is a program to do JUnit test for the CaesarCipher class.
  * 
@@ -28,6 +28,7 @@ class CaesarCipherTest {
 		assertNotEquals(cipher, cipher2);
 	}
 	
+	
 	/**
 	 * Test the first constructor by creating a static object,
 	 * using the singleton pattern
@@ -43,6 +44,7 @@ class CaesarCipherTest {
 		assertEquals(cipher, cipher2);
 	}
 	
+	
 	/**
 	 * Test the encrypt method
 	 */
@@ -55,17 +57,19 @@ class CaesarCipherTest {
 		assertNotEquals(password, encrptedPassword);
 	}
 	
+	
 	/**
 	 * Test the exception in the encrypt method
 	 */
 	@Test
 	void testEncryptException() {
 		try {
-			String password = "absdf\t1534&¤·¤©¤·^#";
+			String password = "absdf\t1534&Â¤Â·Â¤Â©Â¤Â·^#";
 			CaesarCipher.getInstance().encrypt(password);
 			fail();
 		} catch(IllegalArgumentException e) {}
 	}
+	
 	
 	/**
 	 * Test the decrypt method
@@ -78,17 +82,14 @@ class CaesarCipherTest {
 		
 		// Create a short password to test and Encrypt the password
 		String shortPassword = "ab";
-		String encryptedShortPassword = CaesarCipher.getInstance().
-										encrypt(shortPassword);
+		String encryptedShortPassword = CaesarCipher.getInstance().encrypt(shortPassword);
 		
 		// Test the decrypt method
 		assertNotEquals(password, encryptedPassword);
-		assertEquals(password, CaesarCipher.getInstance().
-					 decrypt(encryptedPassword));
+		assertEquals(password, CaesarCipher.getInstance().decrypt(encryptedPassword));
 		
 		assertNotEquals(shortPassword, encryptedShortPassword);
-		assertEquals(shortPassword, CaesarCipher.getInstance().
-					 decrypt(encryptedShortPassword));	
+		assertEquals(shortPassword, CaesarCipher.getInstance().decrypt(encryptedShortPassword));	
 	}
 
 }
