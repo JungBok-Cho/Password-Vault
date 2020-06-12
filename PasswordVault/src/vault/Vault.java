@@ -1,9 +1,9 @@
 /*
  * JungBok Cho
- * CPSC 5011, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Password vault system
  */
 package vault;
+
 /**
  * This is an interface to create a password vault program.
  *
@@ -24,10 +24,10 @@ public interface Vault {
 	 * @throws InvalidPasswordException The supplied password is invalid 
 	 * @throws DuplicateUserException   The username is already in the vault 
 	 */
-	void addNewUser(String username, String password) 
-			throws 	exceptions.InvalidUsernameException,
-					exceptions.InvalidPasswordException, 
-					exceptions.DuplicateUserException;
+	void addNewUser(String username, String password) throws exceptions.InvalidUsernameException,
+								 exceptions.InvalidPasswordException, 
+								 exceptions.DuplicateUserException;
+	
 	
 	/**
 	 * Adds a new site to the vault for the user, generates, stores, and 
@@ -50,12 +50,12 @@ public interface Vault {
 	 *                                   user's vault password
 	 * @throws InvalidSiteException      The site name supplied is invalid
 	 */
-	String addNewSite(String username, String password, String sitename)
-			throws 	exceptions.DuplicateSiteException, 
-					exceptions.UserNotFoundException,
-					exceptions.UserLockedOutException, 
-					exceptions.PasswordMismatchException, 
-					exceptions.InvalidSiteException;
+	String addNewSite(String username, String password, String sitename) throws exceptions.DuplicateSiteException, 
+										    exceptions.UserNotFoundException,
+									    	    exceptions.UserLockedOutException, 
+										    exceptions.PasswordMismatchException, 
+										    exceptions.InvalidSiteException;
+	
 	
 	/**
 	 * Generate, store, and return an updated password for a site associated 
@@ -75,11 +75,11 @@ public interface Vault {
 	 * @throws PasswordMismatchException The password supplied does not match the
 	 *                                   user's vault password
 	 */
-	String updateSitePassword(String username, String password, String sitename)
-			throws 	exceptions.SiteNotFoundException, 
-					exceptions.UserNotFoundException,
-					exceptions.UserLockedOutException, 
-					exceptions.PasswordMismatchException;
+	String updateSitePassword(String username, String password, String sitename) throws exceptions.SiteNotFoundException, 
+											    exceptions.UserNotFoundException,
+											    exceptions.UserLockedOutException, 
+											    exceptions.PasswordMismatchException;
+	
 	
 	/**
 	 * Retrieve the (plaintext) password for the user for the requested site. 
@@ -98,10 +98,9 @@ public interface Vault {
 	 * @throws PasswordMismatchException The password supplied does not match the
 	 *                                   user's vault password
 	 */
-	String retrieveSitePassword(String username, String password, String sitename)
-			throws 	exceptions.SiteNotFoundException, 
-					exceptions.UserNotFoundException,
-					exceptions.UserLockedOutException, 
-					exceptions.PasswordMismatchException;
+	String retrieveSitePassword(String username, String password, String sitename) throws exceptions.SiteNotFoundException, 
+											      exceptions.UserNotFoundException,
+											      exceptions.UserLockedOutException, 
+											      exceptions.PasswordMismatchException;
 
 }
