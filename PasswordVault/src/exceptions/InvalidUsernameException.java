@@ -19,8 +19,8 @@ public class InvalidUsernameException extends Exception {
 	 */
 	public InvalidUsernameException() {
         super("Error: Invalid Username" + "\n- Username"
-        		+ " must be strings of at least 6 and at"
-        		+ " most 12 lower-case letters");
+        	+ " must be strings of at least 6 and at"
+        	+ " most 12 lower-case letters");
     }
 	
 }
